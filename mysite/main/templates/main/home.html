@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %} {% block content %}
+
+<style>
+    #backgroundHome {
+        background-image: url("https://scontent.fdad1-2.fna.fbcdn.net/v/t1.15752-9/248349424_617147576139523_942931424023208491_n.png?_nc_cat=105&ccb=1-7&_nc_sid=ae9488&_nc_ohc=WwB5FQDMUVcAX-o_UUp&_nc_ht=scontent.fdad1-2.fna&oh=03_AVLOojfBK0wV_o9Se3p7Z3ooDBSkBceZgbFSXrJZztU1mQ&oe=62AA7B8A");
+        width: 100%;
+        height: 500px;
+        margin-bottom: 100px;
+    }
+    
+    #name {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin-left: 35%;
+        color: white;
+        font-size: 60px;
+        padding-top: 100px;
+    }
+    
+    #searchBar {
+        margin-top: 20px;
+        margin-left: 29%;
+        font-size: 25px;
+        height: 70px;
+        /* width: 450px; */
+        width: 40%;
+        background-color: white;
+        border: 0px;
+        padding-left: 20px;
+        border-radius: 10px;
+        opacity: 0.7;
+        box-shadow: 5px 5px 5px black;
+    }
+    
+    #searchBar:hover {
+        opacity: 1;
+    }
+</style>
+
+
+<div id="backgroundHome">
+    <p id='name'>LQD Book Store</p>
+    <div id="search">
+        <input type="text" placeholder="Tìm kiếm" id="searchBar">
+        <i class="fas fa-search" id="searchIcon"></i>
+    </div>
+</div>
+<table class="table table-striped table-hover" style="border: 2px solid black;  border-width: 0px 0px 0px 2px; margin-left: 50px;">
+
+
+    <tbody>
+        <tr>
+            <th>TÊN SẢN PHẨM</th>
+        </tr>
+        {% for item in ls.all %}
+        <tr>
+            <td> <a href="/{{item.id}}" style="text-decoration: none;">{{item.name}} </a> </td>
+        </tr>
+
+        {% endfor%}
+
+    </tbody>
+</table>
+
+<!-- {% for item in ls.all %}
+<p>{{item.name}} </p> {% endfor%} -->
+
+<!-- ------------- -->
+{% endblock %}
